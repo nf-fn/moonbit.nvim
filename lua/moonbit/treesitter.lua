@@ -28,7 +28,8 @@ return {
     if auto_install then
       local has_parser = pcall(vim.treesitter.language.add, 'moonbit')
       if not has_parser then
-        nvim_treesitter.install({ 'moonbit' })
+        -- Use vim command instead of direct API call
+        vim.cmd('TSInstall moonbit')
       end
     end
   end,
